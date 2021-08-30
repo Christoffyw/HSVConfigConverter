@@ -101,7 +101,8 @@ convertBtn.addEventListener('click', () => {
             for(var i = 0; i < pcJSON.judgments.length; i++) {
                 setJudgmentData(i, pcJSON.judgments[i]);
             }
-            document.getElementById('content-target').value = JSON.stringify(questConfigTemplate, null, 2);
+            var newContent = JSON.stringify(questConfigTemplate, null, 2).replace("[", "{");
+            document.getElementById('content-target').value = newContent.replace("]", "}");
             console.log(questConfigTemplate);
         }
     }
